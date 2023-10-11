@@ -27,12 +27,10 @@ $statement->execute();
     <title>Liste freinds</title>
 </head>
 <body>
-    <?php foreach($freindsArray as $friend) {?>
         <ul>
-            <li> <?php echo $friend['firstname'] . ' ' . $friend['lastname']; ?> </li>
+            <?php foreach($freindsArray as $friend) {
+                echo '<li>' . $friend['firstname'] . ' ' . $friend['lastname'] . '</li>';} ?>
         </ul>
-        <?php }?>
-
         <form action=""method="post">
             <label for="firstname">firstname</label>
             <input type="text" id="firstname" name="firstname" require>
