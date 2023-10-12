@@ -7,7 +7,7 @@ $query = "SELECT * FROM friend";
 $statement = $pdo->query($query);
 $freindsArray = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
+if (!empty($_POST)){
 $firstname = trim($_POST['firstname']);
 $lastname = trim($_POST['lastname']);
 $query = 'INSERT INTO friend (firstname, lastname) VALUES (:firstname, :lastname)';
@@ -17,6 +17,10 @@ $statement->bindValue(':firstname', $firstname, \PDO::PARAM_STR);
 $statement->bindValue(':lastname', $lastname, \PDO::PARAM_STR);
 
 $statement->execute();
+
+header('location : /');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
